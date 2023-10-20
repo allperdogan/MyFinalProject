@@ -54,7 +54,7 @@ namespace Business.Concrete
            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
         }
 
-        public IDataResult<List<Product>> GettAll()
+        public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour==22)
             {
