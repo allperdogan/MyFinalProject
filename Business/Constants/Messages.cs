@@ -19,7 +19,7 @@ namespace Business.Constants
         public static string? AuthorizationDenied = "Yetkiniz yok";
         public static string UserRegistered = "User kayıt oldu";
         public static User UserNotFound;
-        public static User PasswordError;
+        public static string PasswordError = "Parola hatası";
         public static string SuccessfulLogin = "Başarılı giriş " ;
         public static string UserAlreadyExists = "User zaten var";
         public static string AccessTokenCreated = "Token oluşturuldu";

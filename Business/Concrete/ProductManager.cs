@@ -33,9 +33,9 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
         // claim
-        [SecuredOperation("product.add,admin")]
+        [SecuredOperation("admin")]
         [ValidationAspect(typeof(ProductValidator))]
-        [CacheRemoveAspect("IProductService.Get")]
+        //[CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
             IResult result = BusinessRules.Run(CheckIfProductNameExist(product.ProductName),
@@ -54,7 +54,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == id));
         }
 
-        [CacheAspect]
+        //[CacheAspect]
         public IDataResult<Product> GetById(int id)
         {
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == id));
@@ -70,7 +70,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
         }
 
-        [CacheAspect] //key, value
+        //[CacheAspect] //key, value
         public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour == 13)
